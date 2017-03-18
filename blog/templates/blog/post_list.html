@@ -12,9 +12,25 @@
     <head>
         <title>Hi there!</title>
     </head>
+    <div>
+        <h2><a href="/">Django Girls Blog</a></h2>
+    </div>
+
+    <div>
+        <p>This page literally means nothing, just experimenting, so dont waste your time with it! :)</p>
+    </div>
     <body>
         <p>London is burning.. London is burning..</p>
         <p>Fetch the engines!</p>
         <p>Fetch the engines!</p>
     </body>
+    <div>
+        {% for post in posts %}
+        <div>
+            <p>published: {{post.published_date}}</p>
+            <h4><a href=""> {{post.title}}</a></h4>
+            <p>{{post.text|linebreaksbr}}</p>
+        </div>
+        {% endfor %}
+    </div>
 </html>
