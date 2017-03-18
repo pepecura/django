@@ -1,39 +1,13 @@
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+{% extends 'blog/base.html' %}
 
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-          
-<a class="waves-effect waves-light btn">Give it a try!</a>
-<a class="waves-effect waves-light btn"><i class="material-icons left">Press me!</i>button</a>
-<a class="waves-effect waves-light btn"><i class="material-icons left">Don't press me!</i>button</a>
-
-<html>
-    <head>
-        <title>Hi there!</title>
-    </head>
+{% block content %}
+    {% for post in posts %}
     <div>
-        <h2><a href="/">Django Girls Blog</a></h2>
-    </div>
-
-    <div>
-        <p>This page literally means nothing, just experimenting, so dont waste your time with it! :)</p>
-    </div>
-    <body>
-        <p>London is burning.. London is burning..</p>
-        <p>Fetch the engines!</p>
-        <p>Fetch the engines!</p>
-    </body>
-    <div>
-        <p>TODAY: {{mytime}}</p>
-    </div>
-    <div>
-        {% for post in posts %}
-        <div>
-            <p>published: {{post.published_date}}</p>
-            <h4><a href=""> {{post.title}}</a></h4>
-            <p>{{post.text|linebreaksbr}}</p>
+        <div class="date">
+        <p>published: {{post.published_date}}</p>
         </div>
-        {% endfor %}
+        <h4><a href=""> {{post.title}}</a></h4>
+        <p>{{post.text|linebreaksbr}}</p>
     </div>
-</html>
+    {% endfor %}
+{% endblock %}
